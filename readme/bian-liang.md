@@ -174,33 +174,35 @@ main() {
 
 <img src="../.gitbook/assets/file.excalidraw.svg" alt="三种聚合类型转换关系" class="gitbook-drawing">
 
-<pre class="language-dart"><code class="lang-dart">```dart
+````dart
+```dart
 main(){
   foo2();
 }
 
 foo0(){
-  List&#x3C;String> cnNumUnits = ['零', '壹', '贰', '叁','贰', '贰'];
-  Set&#x3C;String> cnNumSet = cnNumUnits.toSet();
+  List<String> cnNumUnits = ['零', '壹', '贰', '叁','贰', '贰'];
+  Set<String> cnNumSet = cnNumUnits.toSet();
   print(cnNumSet); // {零, 壹, 贰, 叁}
-  List&#x3C;String> cnNumUnique  = cnNumSet.toList();
+  List<String> cnNumUnique  = cnNumSet.toList();
   print(cnNumUnique); // [零, 壹, 贰, 叁]
 }
 
 foo1(){
-  List&#x3C;String> cnNumUnits = ['零', '壹', '贰', '叁', '肆', '伍', '陆', '柒', '捌', '玖'];
-  Map&#x3C;int,String> cnNumMap = cnNumUnits.asMap();
+  List<String> cnNumUnits = ['零', '壹', '贰', '叁', '肆', '伍', '陆', '柒', '捌', '玖'];
+  Map<int,String> cnNumMap = cnNumUnits.asMap();
   print(cnNumMap);
 }
 
 foo2(){
-  List&#x3C;String> cnNumUnits = ['零', '壹', '贰', '叁', '肆', '伍', '陆', '柒', '捌', '玖','拾','佰','仟','萬'];
-  Set&#x3C;int> numUnitsSet = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9,10,100,1000,10000};
-  Map&#x3C;int,String> map = Map.fromIterables(numUnitsSet,cnNumUnits);
+  List<String> cnNumUnits = ['零', '壹', '贰', '叁', '肆', '伍', '陆', '柒', '捌', '玖','拾','佰','仟','萬'];
+  Set<int> numUnitsSet = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9,10,100,1000,10000};
+  Map<int,String> map = Map.fromIterables(numUnitsSet,cnNumUnits);
   print(map);
-<strong>}
-</strong>foo3(){
-  Map&#x3C;String,String> dict = {'about': '关于', 'boot': '启动', 'card': '卡片'};
+}
+
+foo3(){
+  Map<String,String> dict = {'about': '关于', 'boot': '启动', 'card': '卡片'};
   dict.keys.toList();
   dict.values.toList();
 
@@ -209,4 +211,4 @@ foo2(){
 }
 
 ```
-</code></pre>
+````
