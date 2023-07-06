@@ -2,7 +2,6 @@
 
 ## 不可变量：关键字<mark style="color:blue;background-color:blue;">const</mark>（编译时常量）和<mark style="color:blue;background-color:blue;">final</mark>（运行时常量）
 
-````dart
 ```dart
 main() {
   // t1不能再被赋值
@@ -14,13 +13,11 @@ main() {
   // t1 = t2;
 }
 ```
-````
 
 ## 可变量：默认数据类型和<mark style="color:blue;background-color:blue;">var</mark>&#x20;
 
 ## 数字<mark style="color:blue;background-color:blue;">num</mark> 类型是整形 <mark style="color:blue;background-color:blue;">int</mark> 和浮点型 <mark style="color:blue;background-color:blue;">double</mark> 的抽象类
 
-````dart
 ```dart
 main(){
   num a = 57;
@@ -28,13 +25,11 @@ main(){
   print("a:${a.runtimeType}===b:${b.runtimeType}");
 }
 ```
-````
 
 ## 字符串模版拼接
 
 通过 `${变量}` 插入变量
 
-````dart
 ```dart
 main() {
   String addr = '逍遥津公园';
@@ -43,7 +38,6 @@ main() {
   print(result);
 }
 ```
-````
 
 ## 聚合类型：<mark style="color:blue;background-color:blue;">List</mark> 列表 、<mark style="color:blue;background-color:blue;">Map</mark> 映射 、 <mark style="color:blue;background-color:blue;">Set</mark> 集合
 
@@ -51,7 +45,6 @@ main() {
 
 增删改查
 
-````dart
 ```dart
 main() {
   List<String> cnNumUnits = ['零', '壹', '贰', '叁', '肆', '伍', '六', '柒', '捌', '玖'];
@@ -77,11 +70,9 @@ main() {
 
 }
 ```
-````
 
 元素遍历
 
-````dart
 ```dart
 main() {
   List<String> cnNumUnits = ['零', '壹', '贰', '叁', '肆', '伍', '陆', '柒', '捌', '玖'];
@@ -104,7 +95,6 @@ main() {
   }
 }
 ```
-````
 
 ### <mark style="color:blue;background-color:blue;">Set</mark> 集合
 
@@ -114,7 +104,6 @@ main() {
 
 `Set` 类似数学集合间的运算
 
-````dart
 ```dart
 main() {
   Set<String> cnNumUnits = {'零', '壹', '贰', '叁', '肆', '伍', '陆', '柒', '捌', '玖'};
@@ -130,7 +119,6 @@ main() {
 // {叁, 肆, 伍, 陆, 柒, 捌, 玖}
 }
 ```
-````
 
 
 
@@ -138,7 +126,6 @@ main() {
 
 增删改查
 
-````dart
 ```dart
 main() {
   Map<String,String> dict = {
@@ -154,12 +141,10 @@ main() {
   dict.remove('cat');//删除
 }
 ```
-````
 
 元素遍历
 
-````dart
-// ```dart
+```dart
 main() {
   Map<String, String> dict = {'about': '关于', 'boot': '启动', 'card': '卡片'};
   dict.forEach((k, v) {
@@ -168,13 +153,11 @@ main() {
   });
 }
 ```
-````
 
 ### 聚合类型的关系
 
 <img src="../.gitbook/assets/file.excalidraw.svg" alt="三种聚合类型转换关系" class="gitbook-drawing">
 
-````dart
 ```dart
 main(){
   foo2();
@@ -209,12 +192,10 @@ foo3(){
   dict.keys.toSet();
   dict.values.toSet();
 }
-
 ```
-````
 
 ## 运算符
 
-`~/` 表示 `取商` ，`%` 表示取 `余数` ， 对于除法 `/` 来说，返回值类型为 `double`&#x20;
+### `~/` 表示 `取商` ，`%` 表示取 `余数` ， 对于除法 `/` 来说，返回值类型为 `double`&#x20;
 
 int b = a ??= 20;

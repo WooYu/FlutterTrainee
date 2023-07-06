@@ -5,7 +5,6 @@
 * 外部调用能够明确入参含义
 * 无需按照参数顺序传递
 
-````dart
 ```dart
 main() {
   solution(foot: 194);
@@ -25,7 +24,6 @@ void solution({
   print("雉数:$x  兔数:$y");
 }
 ```
-````
 
 
 
@@ -33,7 +31,6 @@ void solution({
 
 * 可选参数，必须按照顺序传递
 
-````
 ```dart
   DateTime(int year,
         [int month = 1,
@@ -44,7 +41,6 @@ void solution({
         int millisecond = 0,
         int microsecond = 0])
 ```
-````
 
 
 
@@ -52,8 +48,8 @@ void solution({
 
 <mark style="color:blue;background-color:blue;">typedef</mark>把函数当做对象来看待
 
-````dart
 ```dart
+
 typedef Operation = double Function(double);
 
 main() {
@@ -72,11 +68,9 @@ double square(double a) {
 double cube(double a) => a * a * a;
 
 ```
-````
 
 函数作为入参
 
-````dart
 ```dart
 typedef Operation = double Function(double);
 
@@ -102,5 +96,5 @@ double square(double a) {
   return a * a;
 }
 
+
 ```
-````
