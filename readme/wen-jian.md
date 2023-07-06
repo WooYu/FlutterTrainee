@@ -18,7 +18,7 @@
 
 &#x20;`part` 文件中不允许提供 `import` 关键字；但在宿主类中导入的包，都可以在 `part` 文件中使用
 
-![](<../.gitbook/assets/image (1).png>)
+![](<../.gitbook/assets/image (1) (1).png>)
 
 ## &#x20;**定义库与导出： **<mark style="color:blue;background-color:blue;">**library**</mark>** 与 **<mark style="color:blue;background-color:blue;">**export**</mark>
 
