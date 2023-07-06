@@ -156,7 +156,7 @@ main() {
 
 ### 聚合类型的关系
 
-<img src="../.gitbook/assets/file.excalidraw.svg" alt="三种聚合类型转换关系" class="gitbook-drawing">
+<img src="../.gitbook/assets/file.excalidraw (1).svg" alt="三种聚合类型转换关系" class="gitbook-drawing">
 
 ```dart
 main(){
