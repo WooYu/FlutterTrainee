@@ -98,3 +98,119 @@ double square(double a) {
 
 
 ```
+
+## 异步任务
+
+### <mark style="color:blue;background-color:blue;">Feture</mark>&#x20;
+
+* `Future` `then`&#x20;
+* `async/await`&#x20;
+
+```dart
+import 'dart:io';
+
+import 'package:path/path.dart' as path;
+
+/* doTask1()===开始读取====l10n.yaml===
+doTask2()===开始读取====l10n.yaml===
+doTask3
+doTask1()===结束读取====l10n.yaml===
+doTask1()===l10n.yaml内容: arb-dir: lib/timer/10/l10n/arb
+
+template-arb-file: app_en.arb
+
+output-localization-file: app_localizations.dart
+doTask2()===结束读取====l10n.yaml===
+doTask2()===l10n.yaml内容: arb-dir: lib/timer/10/l10n/arb
+
+template-arb-file: app_en.arb
+
+output-localization-file: app_localizations.dart */
+void main() {
+  doTask1();
+  doTask2();
+  doTask3();
+}
+
+void doTask1() {
+  File file = File(path.join(Directory.current.path, "l10n.yaml"));
+  print('doTask1()===开始读取====l10n.yaml===');
+  file.readAsString().then((value) {
+    print('doTask1()===结束读取====l10n.yaml===');
+    print('doTask1()===l10n.yaml内容: $value');
+  });
+}
+
+void doTask2() async {
+  File file = File(path.join(Directory.current.path, "l10n.yaml"));
+  print('doTask2()===开始读取====l10n.yaml===');
+  String content = await file.readAsString();
+  print('doTask2()===结束读取====l10n.yaml===');
+  print('doTask2()===l10n.yaml内容: $content');
+}
+
+void doTask3() {
+  print('doTask3');
+}
+
+```
+
+### <mark style="color:blue;background-color:blue;">Stream</mark>&#x20;
+
+`Stream#listen` 方法会返回一个 `StreamSubscription` 的订阅对象，通过该对象可以控制流的监听
+
+> subscription.cancel();
+>
+> subscription.pause();&#x20;
+>
+> subscription.resume();
+
+```dart
+import 'dart:async';
+import 'dart:io';
+
+import 'package:path/path.dart' as path;
+
+void main() {
+  doTask1();
+  doTask2();
+  doTask3();
+}
+
+late StreamSubscription<List<int>> subscription;
+int fileLength = 0;
+int counter = 0;
+
+void doTask2() async {
+  File file =
+      File(path.join(Directory.current.path, "assets", "Jane Eyre.txt"));
+  print("开始读取 Jane Eyre.txt ");
+  fileLength = await file.length();
+  Stream<List<int>> stream = file.openRead();
+  subscription = stream.listen(_onData, onDone: _onDone);
+}
+
+void _onData(List<int> bytes) async {
+  counter += bytes.length;
+  double progress = counter * 100 / fileLength;
+  DateTime time = DateTime.now();
+  String timeStr =
+      "[${time.hour}:${time.minute}:${time.second}:${time.millisecond}]";
+  print(timeStr + "=" * (progress ~/ 2) + '[${progress.toStringAsFixed(2)}%]');
+  if (progress >= 50) {
+    subscription.cancel();
+  }
+}
+
+void _onDone() {
+  print("读取 Jane Eyre.txt 结束");
+}
+
+void doTask1() {
+  print('doTask1');
+}
+
+void doTask3() {
+  print('doTask3');
+}
+```

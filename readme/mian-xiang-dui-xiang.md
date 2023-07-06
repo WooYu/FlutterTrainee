@@ -249,7 +249,7 @@ class Vec2{
 
 <figure><img src="../.gitbook/assets/Flutter类的关键字.png" alt=""><figcaption></figcaption></figure>
 
-### 类重载运算符 <mark style="color:blue;background-color:blue;">operator</mark>&#x20;
+## 类重载运算符 <mark style="color:blue;background-color:blue;">operator</mark>&#x20;
 
 ```dart
 void main() {
@@ -282,3 +282,106 @@ class Vec2 {
   String toString() => "Vec2($x,$y)";
 }
 ```
+
+## 类的拓展: <mark style="color:blue;background-color:blue;">extension</mark>
+
+> `extension A on B` ，其中 `A` 的名字是任意的，`B` 是拓展的目标类
+
+```dart
+void main() {
+  String input = "18715079839";
+  bool checked = input.isPhone();
+  print(checked); // true
+  print("hello" > "toly"); // flase
+}
+
+extension JudgeStringExt on String {
+  // final int count = 0;
+  //
+  // String toString()=> this.toString();
+
+  bool isPhone() {
+    const String reg =
+        r'^(13[0-9]|14[01456879]|15[0-35-9]|16[2567]|17[0-8]|18[0-9]|19[0-35-9])\d{8}$';
+    RegExp(reg).hasMatch(this);
+    return RegExp(reg).hasMatch(this);
+  }
+
+  bool operator >(String other) {
+    int thisCode = 0;
+    int otherCode = 0;
+    if (isNotEmpty) {
+      thisCode = codeUnits.first;
+    }
+    if (other.isNotEmpty) {
+      otherCode = other.codeUnits.first;
+    }
+    return thisCode > otherCode;
+  }
+}
+
+```
+
+## 其他语法糖
+
+* &#x20;`??`  用于空处理
+* &#x20;`.` 获取成员属性和调用成员方法
+* &#x20;`..` 连续的调用获取当前对象
+* `...` 解构可迭代的对象
+* `typedef` 来定义一个函数类型
+
+```dart
+void main() {
+  foo(null); //UNKNOWN
+  foo("toly"); //toly
+
+  Person toly = Person();
+  toly
+    ..name = "toly"
+    ..age = 28
+    ..log(); //name:toly,age:28
+
+  List<int> list = [0, 1, 2, 3, 4];
+  List<int> list2 = [6, ...list, 7];
+  print(list2); // [6, 0, 1, 2, 3, 4, 7]
+
+  FishMan man = FishMan(hook: (String name) {
+    print("钓到一条$name");
+  });
+
+  Pond pond = Pond(fishMan: man);
+  pond.emitFish("鲫鱼"); //钓到一条鲫鱼
+}
+
+void foo(String? arg) {
+  String b = arg ?? "UNKNOWN";
+  print(b);
+}
+
+class Person {
+  String name = '';
+  int age = 0;
+
+  void log() {
+    print("name:$name,age:$age");
+  }
+}
+
+typedef OnBiteCallBack = void Function(String name);
+
+class FishMan {
+  final OnBiteCallBack hook;
+
+  FishMan({required this.hook});
+}
+
+class Pond {
+  FishMan fishMan;
+  Pond({required this.fishMan});
+
+  void emitFish(String name) {
+    fishMan.hook(name);
+  }
+}
+```
+
