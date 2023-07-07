@@ -17,5 +17,3 @@ description: 通过学习实现以下目标：
 {% embed url="https://www.dartcn.com/guides/language/language-tour" %}
 
 {% embed url="https://juejin.cn/book/6844733827617652750/section/7142516587071815683?scrollMenuIndex=1" %}
-
-[https://tianchenglee.github.io/Contrast.html](https://tianchenglee.github.io/Contrast.html)
