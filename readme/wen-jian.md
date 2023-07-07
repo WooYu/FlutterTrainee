@@ -12,13 +12,13 @@
 
 ## 文件内容的显隐：<mark style="color:blue;background-color:blue;">show</mark> 和 <mark style="color:blue;background-color:blue;">hide</mark>
 
-![](../.gitbook/assets/image.png)
+![](<../.gitbook/assets/image (8).png>)
 
 ## 部分与整体：<mark style="color:blue;background-color:blue;">part of</mark> 与 <mark style="color:blue;background-color:blue;">part</mark>
 
 &#x20;`part` 文件中不允许提供 `import` 关键字；但在宿主类中导入的包，都可以在 `part` 文件中使用
 
-![](<../.gitbook/assets/image (1) (1).png>)
+![](<../.gitbook/assets/image (1) (1) (1).png>)
 
 ## &#x20;**定义库与导出： **<mark style="color:blue;background-color:blue;">**library**</mark>** 与 **<mark style="color:blue;background-color:blue;">**export**</mark>
 

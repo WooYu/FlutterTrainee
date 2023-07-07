@@ -9,7 +9,7 @@
   * [面向对象](readme/mian-xiang-dui-xiang.md)
   * [文件](readme/wen-jian.md)
 * [环境搭建](huan-jing-da-jian/README.md)
-  * [安装示例](https://tianchenglee.github.io/Chapter1/InstallFlutter.html)
+  * [安装](huan-jing-da-jian/an-zhuang.md)
 
 ## 常见问题
 
